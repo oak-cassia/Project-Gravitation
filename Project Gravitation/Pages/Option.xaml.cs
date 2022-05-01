@@ -20,10 +20,12 @@ namespace Project_Gravitation.Pages
     /// </summary>
     public partial class Option : Page
     {
-        public Page sourcepage;
-        public Option()
+        MainWindow _window;
+        public Page sourcepage;  //나중에 쓰일 수도 있음, 중간중간에 옵션을 킨다면
+        public Option(MainWindow Mwindow)
         {
             InitializeComponent();
+            _window=Mwindow;
           
         }
 

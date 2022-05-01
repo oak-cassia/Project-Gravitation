@@ -20,11 +20,10 @@ namespace Project_Gravitation.Pages
     /// </summary>
     public partial class Page1 : Page
     {
-        Option _option;
-        public Page1(Option option)
+        MainWindow _window;
+        public Page1(MainWindow Mwindow)
         {
-            _option = option;
-            _option.sourcepage = this;
+            _window = Mwindow;
             InitializeComponent();
         }
         private void MyButton_Click(object sender, RoutedEventArgs e)
@@ -34,7 +33,8 @@ namespace Project_Gravitation.Pages
 
         private void MyButton_Click_1(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(_option);
+            NavigationService.Navigate(_window.option);
+            _window.option.sourcepage=this;
 
         }
     }

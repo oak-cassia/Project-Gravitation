@@ -22,12 +22,14 @@ namespace Project_Gravitation
     /// </summary>
     public partial class MainWindow : Window
     {
-        Option option; 
+        public Option option;
+        public Page1 mainPage;
         public MainWindow()
         {
             InitializeComponent();
-            option = new Option();
-            frame.NavigationService.Navigate(new Page1(option));
+            option = new Option(this);
+            mainPage = new Page1(this);
+            frame.NavigationService.Navigate(mainPage);
             
         }
 
