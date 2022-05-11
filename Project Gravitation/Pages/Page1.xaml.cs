@@ -37,5 +37,11 @@ namespace Project_Gravitation.Pages
             _window.option.sourcepage=this;
 
         }
+
+        private void MyButton_Click_2(object sender, RoutedEventArgs e)
+        {
+            Items item = new Items();
+            NavigationService.Navigate(item);
+        }
     }
 }

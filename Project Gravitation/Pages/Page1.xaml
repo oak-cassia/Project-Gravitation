@@ -11,7 +11,7 @@
 
     <Grid Background="White">
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <mclass:MyButton Style="{StaticResource MainButton}"  Content="게임시작"/>
+            <mclass:MyButton Style="{StaticResource MainButton}"  Content="게임시작" Click="MyButton_Click_2"/>
             <mclass:MyButton Style="{StaticResource MainButton}"  Content="옵션" Click="MyButton_Click_1"/>
             <mclass:MyButton Style="{StaticResource MainButton}"  Content="종료" Click="MyButton_Click" />
         </StackPanel>

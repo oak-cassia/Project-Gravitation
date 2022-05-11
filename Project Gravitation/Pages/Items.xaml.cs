@@ -12,27 +12,23 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Project_Gravitation.Classes;
-using Project_Gravitation.Pages;
 
-namespace Project_Gravitation
+namespace Project_Gravitation.Pages
 {
     /// <summary>
-    /// MainWindow.xaml에 대한 상호 작용 논리
+    /// Items.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Items : Page
     {
-        public Option option;
-        public Page1 mainPage;
-        public MainWindow()
+        public Items()
         {
             InitializeComponent();
-            option = new Option(this);
-            mainPage = new Page1(this);
-            frame.NavigationService.Navigate(mainPage); 
-            
         }
 
-     
+        private void MyButton_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = (Button)sender;
+            
+        }
     }
 }
