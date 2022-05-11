@@ -8,17 +8,23 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Items">
+    <Page.Resources>
+        <Style x:Key="ItemBtn" TargetType="Button">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Height" Value="200"/>
+            <Setter Property="Width" Value="200"/>
+        </Style>
+    </Page.Resources>
 
     <Grid  Background="White">
         <StackPanel VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
-            <mclass:MyButton Background="White" Height="200" Width="200" Click="MyButton_Click">
+            <mclass:MyButton  Style="{StaticResource ItemBtn}" Click="MyButton_Click">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="100"/>
                     </Style>
-                           
                 </Button.Resources>
-                
+        
                 <Grid>
     
                     <Grid.RowDefinitions>
@@ -33,11 +39,21 @@
                 </Grid>
                 
             </mclass:MyButton>
-            <mclass:MyButton Height="200" Width="200" Click="MyButton_Click">
-                <Image Source="/Pages/flash.jpg"></Image>
+            <mclass:MyButton Style="{StaticResource ItemBtn}" Height="200" Width="200" Click="MyButton_Click">
+                <Image Margin="30" Source="/Pages/flash.jpg"></Image>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="100"/>
+                    </Style>
+                </Button.Resources>
             </mclass:MyButton>
-            <mclass:MyButton Height="200" Width="200" Click="MyButton_Click">
-                <Image Source="/Pages/flash.jpg"></Image>
+            <mclass:MyButton Style="{StaticResource ItemBtn}" Height="200" Width="200" Click="MyButton_Click">
+                <Image Margin="30" Source="/Pages/flash.jpg"></Image>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="100"/>
+                    </Style>
+                </Button.Resources>
             </mclass:MyButton>
             
 

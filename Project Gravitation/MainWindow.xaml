@@ -7,8 +7,8 @@
         xmlns:mclass="clr-namespace:Project_Gravitation.Classes"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="1000">
-    <Grid>
-        <Frame Name="frame" Grid.Row="1" NavigationUIVisibility="Hidden"/>
+    <Grid Focusable="False">
+        <Frame Focusable="False" Name="frame" Grid.Row="1" NavigationUIVisibility="Hidden"/>
 
     </Grid>
     
