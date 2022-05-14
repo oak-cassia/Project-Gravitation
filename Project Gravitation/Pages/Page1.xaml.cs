@@ -40,8 +40,8 @@ namespace Project_Gravitation.Pages
 
         private void MyButton_Click_2(object sender, RoutedEventArgs e)
         {
-            Items item = new Items();
-            NavigationService.Navigate(item);
+            
+            NavigationService.Navigate(new Arrow());
         }
     }
 }
