@@ -7,7 +7,8 @@
        xmlns:mclass="clr-namespace:Project_Gravitation.Classes"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Page1" Height="600" Width="1000">
+      Title="Page1" Height="600" Width="1000"
+      FocusManager.FocusedElement="{Binding ElementName=startBtn}">
     
     <Grid  Background="White" >
         <StackPanel  HorizontalAlignment="Center" VerticalAlignment="Center">

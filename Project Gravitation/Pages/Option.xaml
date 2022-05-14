@@ -7,11 +7,12 @@
        xmlns:mclass="clr-namespace:Project_Gravitation.Classes"
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="1000"
-      Title="Option">
+      Title="Option"
+      FocusManager.FocusedElement="{Binding ElementName=sound}">
 
     <Grid  Background="White">
         <StackPanel VerticalAlignment="Center">
-            <mclass:MyButton Style="{StaticResource OptionButton}" Content="소리"/>
+            <mclass:MyButton x:Name="sound" Style="{StaticResource OptionButton}" Content="소리"/>
             <mclass:MyButton Style="{StaticResource OptionButton}" Content="화면"/>
             <mclass:MyButton Style="{StaticResource OptionButton}" Content="TTS"/>
             <mclass:MyButton Style="{StaticResource OptionButton}" Content="불러오기"/>
