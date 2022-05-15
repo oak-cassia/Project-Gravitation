@@ -1,0 +1,17 @@
+C:\study\ProjectGravitation\ProjectGravitation\ProjectGravitation\bin\Debug\ProjectGravitation.exe.config
+C:\study\ProjectGravitation\ProjectGravitation\ProjectGravitation\bin\Debug\ProjectGravitation.exe
+C:\study\ProjectGravitation\ProjectGravitation\ProjectGravitation\bin\Debug\ProjectGravitation.pdb
+C:\study\ProjectGravitation\ProjectGravitation\ProjectGravitation\obj\Debug\ProjectGravitation.csproj.AssemblyReference.cache
+C:\study\ProjectGravitation\ProjectGravitation\ProjectGravitation\obj\Debug\ProjectGravitation.csproj.SuggestedBindingRedirects.cache
+C:\study\ProjectGravitation\ProjectGravitation\ProjectGravitation\obj\Debug\MainWindow.g.cs
+C:\study\ProjectGravitation\ProjectGravitation\ProjectGravitation\obj\Debug\App.g.cs
+C:\study\ProjectGravitation\ProjectGravitation\ProjectGravitation\obj\Debug\ProjectGravitation_MarkupCompile.cache
+C:\study\ProjectGravitation\ProjectGravitation\ProjectGravitation\obj\Debug\ProjectGravitation_MarkupCompile.lref
+C:\study\ProjectGravitation\ProjectGravitation\ProjectGravitation\obj\Debug\MainWindow.baml
+C:\study\ProjectGravitation\ProjectGravitation\ProjectGravitation\obj\Debug\ProjectGravitation.g.resources
+C:\study\ProjectGravitation\ProjectGravitation\ProjectGravitation\obj\Debug\ProjectGravitation.Properties.Resources.resources
+C:\study\ProjectGravitation\ProjectGravitation\ProjectGravitation\obj\Debug\ProjectGravitation.csproj.GenerateResource.cache
+C:\study\ProjectGravitation\ProjectGravitation\ProjectGravitation\obj\Debug\ProjectGravitation.csproj.CoreCompileInputs.cache
+C:\study\ProjectGravitation\ProjectGravitation\ProjectGravitation\obj\Debug\ProjectGravitation.exe
+C:\study\ProjectGravitation\ProjectGravitation\ProjectGravitation\obj\Debug\ProjectGravitation.pdb
+C:\study\ProjectGravitation\ProjectGravitation\ProjectGravitation\obj\Debug\GeneratedInternalTypeHelper.g.cs
