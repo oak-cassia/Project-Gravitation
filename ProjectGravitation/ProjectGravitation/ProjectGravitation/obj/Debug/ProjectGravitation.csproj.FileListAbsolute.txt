@@ -15,3 +15,20 @@ C:\study\ProjectGravitation\ProjectGravitation\ProjectGravitation\obj\Debug\Proj
 C:\study\ProjectGravitation\ProjectGravitation\ProjectGravitation\obj\Debug\ProjectGravitation.exe
 C:\study\ProjectGravitation\ProjectGravitation\ProjectGravitation\obj\Debug\ProjectGravitation.pdb
 C:\study\ProjectGravitation\ProjectGravitation\ProjectGravitation\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\study\CsharpStudy\Project Gravitation\ProjectGravitation\ProjectGravitation\ProjectGravitation\bin\Debug\ProjectGravitation.exe.config
+C:\study\CsharpStudy\Project Gravitation\ProjectGravitation\ProjectGravitation\ProjectGravitation\bin\Debug\ProjectGravitation.exe
+C:\study\CsharpStudy\Project Gravitation\ProjectGravitation\ProjectGravitation\ProjectGravitation\bin\Debug\ProjectGravitation.pdb
+C:\study\CsharpStudy\Project Gravitation\ProjectGravitation\ProjectGravitation\ProjectGravitation\obj\Debug\ProjectGravitation.csproj.AssemblyReference.cache
+C:\study\CsharpStudy\Project Gravitation\ProjectGravitation\ProjectGravitation\ProjectGravitation\obj\Debug\ProjectGravitation.csproj.SuggestedBindingRedirects.cache
+C:\study\CsharpStudy\Project Gravitation\ProjectGravitation\ProjectGravitation\ProjectGravitation\obj\Debug\MainWindow.g.cs
+C:\study\CsharpStudy\Project Gravitation\ProjectGravitation\ProjectGravitation\ProjectGravitation\obj\Debug\App.g.cs
+C:\study\CsharpStudy\Project Gravitation\ProjectGravitation\ProjectGravitation\ProjectGravitation\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\study\CsharpStudy\Project Gravitation\ProjectGravitation\ProjectGravitation\ProjectGravitation\obj\Debug\ProjectGravitation_MarkupCompile.cache
+C:\study\CsharpStudy\Project Gravitation\ProjectGravitation\ProjectGravitation\ProjectGravitation\obj\Debug\ProjectGravitation_MarkupCompile.lref
+C:\study\CsharpStudy\Project Gravitation\ProjectGravitation\ProjectGravitation\ProjectGravitation\obj\Debug\MainWindow.baml
+C:\study\CsharpStudy\Project Gravitation\ProjectGravitation\ProjectGravitation\ProjectGravitation\obj\Debug\ProjectGravitation.g.resources
+C:\study\CsharpStudy\Project Gravitation\ProjectGravitation\ProjectGravitation\ProjectGravitation\obj\Debug\ProjectGravitation.Properties.Resources.resources
+C:\study\CsharpStudy\Project Gravitation\ProjectGravitation\ProjectGravitation\ProjectGravitation\obj\Debug\ProjectGravitation.csproj.GenerateResource.cache
+C:\study\CsharpStudy\Project Gravitation\ProjectGravitation\ProjectGravitation\ProjectGravitation\obj\Debug\ProjectGravitation.csproj.CoreCompileInputs.cache
+C:\study\CsharpStudy\Project Gravitation\ProjectGravitation\ProjectGravitation\ProjectGravitation\obj\Debug\ProjectGravitation.exe
+C:\study\CsharpStudy\Project Gravitation\ProjectGravitation\ProjectGravitation\ProjectGravitation\obj\Debug\ProjectGravitation.pdb
