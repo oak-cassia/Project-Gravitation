@@ -1,0 +1,34 @@
+﻿<Window x:Class="ProjectGravitation.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjectGravitation"
+        xmlns:myclass="clr-namespace:ProjectGravitation.Classes"
+        xmlns:mycontrol="clr-namespace:ProjectGravitation.Controlls"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="700" Width="450">
+    <Window.Resources>
+        <myclass:Game x:Key="mainGame"/>
+             
+    </Window.Resources>
+    <Grid DataContext="{DynamicResource mainGame}">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Grid.Row="0">
+
+            <TextBlock Background="Black" Foreground="White" x:Name="text" Text="{Binding Path=Text}" FontSize="30" />
+
+        </ScrollViewer>
+        <StackPanel Background="black" x:Name="buttons" Grid.Row="1">
+            <mycontrol:MyButton x:Name="MainStart" 
+                    Content="게임 시작"
+                    CommandParameter="{Binding ElementName=MainStart}"
+                    Command="{Binding Source={StaticResource mainGame}, Path =_gameCommand}"/>
+            <mycontrol:MyButton Content="안할래요"
+                                 />
+            <mycontrol:MyButton Content="hi"/>        </StackPanel>
+    </Grid>
+</Window>
