@@ -12,6 +12,9 @@ namespace ProjectGravitation.Classes
     {
         string _text;
 
+        public TreasureGame _trGame;
+
+
         public string Text
         {
             get { return _text; }
@@ -24,11 +27,11 @@ namespace ProjectGravitation.Classes
         }
 
 
-        int _positivePoint { get; set; } //프로퍼티 다섯 개로 진행사항 관리하면 세이브 로드 가능할지도??
-        int _negativePoint { get; set; }
-        int _sectorOneLevel { get; set; }
-        int _sectorTwoLevel { get; set; }
-        int _sectorThreeLevel { get; set; }
+        public int _positivePoint { get; set; } //프로퍼티 다섯 개로 진행사항 관리하면 세이브 로드 가능할지도??
+        public int _negativePoint { get; set; }
+        public int _sectorOneLevel { get; set; }
+        public int _sectorTwoLevel { get; set; }
+        public int _sectorThreeLevel { get; set; }
         public GameCommand _gameCommand { get; set; }
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -41,6 +44,8 @@ namespace ProjectGravitation.Classes
             _sectorThreeLevel = 1;
             _gameCommand = new GameCommand(this);
             _text = "게임을 시작할 까요?";
+
+             
         }
 
     }

@@ -17,9 +17,9 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Grid.Row="0">
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="0">
 
-            <TextBlock Background="Black" Foreground="White" x:Name="text" Text="{Binding Path=Text}" FontSize="30" />
+            <TextBlock TextWrapping="Wrap" Background="Black" Foreground="White" x:Name="text" Text="{Binding Path=Text}" FontSize="30" />
 
         </ScrollViewer>
         <StackPanel Background="black" x:Name="buttons" Grid.Row="1">
