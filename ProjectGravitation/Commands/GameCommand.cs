@@ -33,7 +33,10 @@ namespace ProjectGravitation.Commands
         {
             MyButton clickedBtn = parameter as MyButton; // MyButton 으로 기본 스타일을 정해두었습니다. 버튼기본값 바꾸는 게 어려워서;;
             if (clickedBtn.Content.ToString() == "게임 시작")
-                MainStart(clickedBtn);   // 각 버튼마다 다른 함수를 호출하게 합니다. 
+            {
+                _game.panel = clickedBtn.Parent as StackPanel;
+                MainStart(clickedBtn);
+            }// 각 버튼마다 다른 함수를 호출하게 합니다. 
             if (clickedBtn.Content.ToString() == "1지역")
                 SectorOneStart(clickedBtn);
             if (clickedBtn.Content.ToString() == "동쪽으로 이동"|| clickedBtn.Content.ToString() == "서쪽으로 이동" || clickedBtn.Content.ToString() == "남쪽으로 이동" || clickedBtn.Content.ToString() == "북쪽으로 이동" )
@@ -104,12 +107,8 @@ namespace ProjectGravitation.Commands
         {
             _game._trGame.Move(clickedBtn);
 
-            StackPanel panel = clickedBtn.Parent as StackPanel;
-            
-
-
         }
-        public void TreasuerGAmeClear(Button clickedBtn)
+        public void TreasuerGAmeClear()
         {
             _game.Text = "신호 찾기 " + _game._sectorOneLevel + "레벨 클리어!";
             _game._sectorOneLevel++;

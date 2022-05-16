@@ -5,12 +5,14 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace ProjectGravitation.Classes
 {
     public class Game : INotifyPropertyChanged
     {
         string _text;
+        public StackPanel panel;
 
         public TreasureGame _trGame;
 
