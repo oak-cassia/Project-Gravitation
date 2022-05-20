@@ -7,11 +7,14 @@
         xmlns:myclass="clr-namespace:ProjectGravitation.Classes"
         xmlns:mycontrol="clr-namespace:ProjectGravitation.Controlls"
         mc:Ignorable="d"
-        Title="MainWindow" Height="700" Width="450">
+        Title="MainWindow" Height="700" Width="450"
+      
+        >
     <Window.Resources>
         <myclass:Game x:Key="mainGame"/>
              
     </Window.Resources>
+    
     <Grid DataContext="{DynamicResource mainGame}">
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -19,10 +22,10 @@
         </Grid.RowDefinitions>
         <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="0">
 
-            <TextBlock TextWrapping="Wrap" Background="Black" Foreground="White" x:Name="text" Text="{Binding Path=Text}" FontSize="30" />
+            <TextBlock  TextWrapping="Wrap" Background="Black" Foreground="White" x:Name="text" Text="{Binding Path=Text}" FontSize="30" />
 
         </ScrollViewer>
-        <StackPanel Background="black" x:Name="buttons" Grid.Row="1">
+        <StackPanel  Background="black" x:Name="buttons" Grid.Row="1">
             <mycontrol:MyButton x:Name="MainStart" 
                     Content="게임 시작"
                     CommandParameter="{Binding ElementName=MainStart}"

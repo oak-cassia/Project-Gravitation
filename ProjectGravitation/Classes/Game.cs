@@ -26,6 +26,8 @@ namespace ProjectGravitation.Classes
         {
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(propName));
+            //panel.Children[0].Focus();
+            
         }
 
 

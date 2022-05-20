@@ -41,6 +41,8 @@ namespace ProjectGravitation.Commands
                 SectorOneStart(clickedBtn);
             if (clickedBtn.Content.ToString() == "동쪽으로 이동"|| clickedBtn.Content.ToString() == "서쪽으로 이동" || clickedBtn.Content.ToString() == "남쪽으로 이동" || clickedBtn.Content.ToString() == "북쪽으로 이동" )
                 MoveTreasuerGame(clickedBtn);
+            if (clickedBtn.Content.ToString() == "베이스 캠프로 돌아가기") 
+                MainStart(clickedBtn);
 
 
 
@@ -110,9 +112,17 @@ namespace ProjectGravitation.Commands
         }
         public void TreasuerGAmeClear()
         {
-            _game.Text = "신호 찾기 " + _game._sectorOneLevel + "레벨 클리어!";
-            _game._sectorOneLevel++;
+            _game.Text = "신호 찾기 " + (_game._sectorOneLevel-1) + "레벨 클리어!";
+            
+            _game.panel.Children.Clear();
+            MyButton button1 = new MyButton();
+            button1.Content = "베이스 캠프로 돌아가기";
+            button1.Command = _game._gameCommand;
+            button1.CommandParameter = button1;
+            _game.panel.Children.Add(button1);
+
         }
+
         
     }
 }

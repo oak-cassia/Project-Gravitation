@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjectGravitation.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,21 @@ namespace ProjectGravitation.Controlls
             this.Background= Brushes.Black;
             this.Foreground = Brushes.White;
             FontSize = 30;
+            this.GotFocus += MyButton_GotFocus;
+            this.LostFocus += MyButton_LostFocus;
+            
+        }
+
+        private void MyButton_LostFocus(object sender, System.Windows.RoutedEventArgs e)
+        {
+            this.Background = Brushes.Black;
+        }
+
+        private void MyButton_GotFocus(object sender, System.Windows.RoutedEventArgs e)
+        {
+            //버튼의 콘텐트 읽기
+            Button button = sender as Button;
+            button.Background = Brushes.SkyBlue;
         }
     }
 }
