@@ -15,23 +15,27 @@
              
     </Window.Resources>
     
-    <Grid DataContext="{DynamicResource mainGame}">
+    <Grid  DataContext="{DynamicResource mainGame}">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="0">
-
-            <TextBlock  TextWrapping="Wrap" Background="Black" Foreground="White" x:Name="text" Text="{Binding Path=Text}" FontSize="30" />
+        <StackPanel Background="Black" Grid.Row="0">
+           
+           
+            <ScrollViewer VerticalScrollBarVisibility="Auto" >
+               
+                <TextBlock  TextWrapping="Wrap" Background="Black" Foreground="White" x:Name="text" Text="{Binding Path=Text}" FontSize="25" />
 
         </ScrollViewer>
+        </StackPanel>
+
         <StackPanel  Background="black" x:Name="buttons" Grid.Row="1">
             <mycontrol:MyButton x:Name="MainStart" 
                     Content="게임 시작"
                     CommandParameter="{Binding ElementName=MainStart}"
                     Command="{Binding Source={StaticResource mainGame}, Path =_gameCommand}"/>
-            <mycontrol:MyButton Content="안할래요"
-                                 />
-            <mycontrol:MyButton Content="hi"/>        </StackPanel>
+            <mycontrol:MyButton Content="안할래요"/>
+        </StackPanel>
     </Grid>
 </Window>

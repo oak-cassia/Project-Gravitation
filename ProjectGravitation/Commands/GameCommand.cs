@@ -43,7 +43,16 @@ namespace ProjectGravitation.Commands
                 MoveTreasuerGame(clickedBtn);
             if (clickedBtn.Content.ToString() == "베이스 캠프로 돌아가기") 
                 MainStart(clickedBtn);
-
+            if(clickedBtn.Content.ToString() == "얼굴에 입을 맞춘다")
+            {
+                _game._positivePoint++;
+                MainStart(clickedBtn);
+            }
+            if(clickedBtn.Content.ToString() == "나무 가지를 꺾는다")
+            {
+                _game._negativePoint++;
+                MainStart(clickedBtn);
+            }
 
 
         }
@@ -73,9 +82,14 @@ namespace ProjectGravitation.Commands
         }
         public void SectorOneStart(Button clickedBtn)
         {
+            if(_game._sectorOneLevel==4)
+            {
+                _game.Text += "\n클리어 했습니다.";
+                return;
+            }
             _game._trGame = new TreasureGame(_game,_game._sectorOneLevel);
 
-            _game.Text = "신호기를 찾자 가까워질 수록 소리가 많이 날 것이다.";
+            _game.Text = "신호찾기 레벨"+_game._sectorOneLevel+" 시작";
             StackPanel panel = clickedBtn.Parent as StackPanel;
             panel.Children.Clear();
             MyButton button1 = new MyButton();
@@ -123,6 +137,23 @@ namespace ProjectGravitation.Commands
 
         }
 
-        
+        public void SectorOneEnd()
+        {
+            _game.panel.Children.Clear();
+            MyButton button1 = new MyButton();
+            button1.Content = "나무 가지를 꺾는다";
+            button1.Command = _game._gameCommand;
+            button1.CommandParameter = button1;
+            _game.panel.Children.Add(button1);
+
+            MyButton button2 = new MyButton();
+            button2.Content = "얼굴에 입을 맞춘다";
+            button2.Command = _game._gameCommand;
+            button2.CommandParameter = button1;
+            _game.panel.Children.Add(button2);
+
+        }
+
+
     }
 }

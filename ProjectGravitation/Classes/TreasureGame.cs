@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 
 
@@ -19,12 +20,14 @@ namespace ProjectGravitation.Classes
         int _xDecoy, _yDecoy;// 가짜 신호
         int _radiationLevel=0;
         int _maxRadiation;
-
+        int _eventOne;
         int n;//맵 크기
         List<List<int>> matrixA= new List<List<int>>();//보물 위치는 1 나머지 0
         public TreasureGame(Game game ,int level)
         {
+
             _game = game;
+            _eventOne = 0;
             n = 5 + level * 2;
             _maxRadiation = n;
             for(int i=0;i<n; i++)
@@ -75,7 +78,7 @@ namespace ProjectGravitation.Classes
             }
             else if (matrixA[location[0]][location[1]] == 2)
             {
-                _game.Text = "이런 가짜였습니다!!";
+                _game.Text = "이런 가짜였다!!";
                 matrixA[location[0]][location[1]] = 0;
                 _xDecoy = 99;
                 _yDecoy = 99;
@@ -83,6 +86,18 @@ namespace ProjectGravitation.Classes
             else
             {
                 GetEvent();
+                //if 문으로 방사능 최대치 시 시작화면
+                if(_maxRadiation<=_radiationLevel)
+                {
+                    _game.Text = "방사능 수치가 가득 차 위험하다 돌아가자";
+                    _game.panel.Children.Clear();
+                    MyButton button1 = new MyButton();
+                    button1.Content = "베이스 캠프로 돌아가기";
+                    button1.Command = _game._gameCommand;
+                    button1.CommandParameter = button1;
+                    _game.panel.Children.Add(button1);
+                    return;
+                }
                 
             }
 
@@ -130,7 +145,7 @@ namespace ProjectGravitation.Classes
                     _game.Text += "\n뚜... 뚜... 뚜... 뚜... 뚜...";
                     break;
                 default:
-                    _game.Text += "\n하지만 신호가 잡히지 않습니다.";
+                    _game.Text += "\n하지만 신호가 잡히지 않는다.";
                     break;
 
             }
@@ -192,9 +207,11 @@ namespace ProjectGravitation.Classes
 
            if(_game._sectorOneLevel==4)// 3단계 완료 시 진행
             {
-                _game.Text = "앞에 무언가 보인다.";
+                _game.Text = "앞에 무언가 보인다. 가까이 다가가자 분간할 수 있다. 나무다.내 머리 쯤 오는 높이에 얼굴이 있다. 아니 얼굴이 있는 것 처럼 보인다.";
+                _game._gameCommand.SectorOneEnd();
                 return;
             }
+
             _game._gameCommand.TreasuerGAmeClear();
             
         }
@@ -256,29 +273,84 @@ namespace ProjectGravitation.Classes
             switch (matrixA[location[0]][location[1]])
             {
                 case 3:
-                    _game.Text = "윽... 방사능에 오염된 지역 입니다. 방사능 수치가 증가합니다.\n 하지만 신호기는 작동합니다.";
+                    _game.Text = "윽... 방사능에 오염된 지역이다. 방사능 수치가 올랐다.\n신호기가 켜졌다.";
                     CalcDis();
                     _radiationLevel++;
                     break;
                 case 4:
-                    if (_radiationLevel < 2)
+                    if ( _game._sectorOneLevel == 1)
                     {
-                        _game.Text = "기다란 관이 땅에 묻혀있습니다.";
+                        if (_eventOne == 0)
+                        {
+                            _game.Text = "땅에 무언가 묻혀 있다.";
+                            _eventOne++;
+                        }
+                        else if (_eventOne == 1)
+                        {
+                            _game.Text = "여기도 무언가 묻혀 있다. 만져보고 싶은 충동이 생긴다.";
+                            _eventOne++;
+                        }
+                        else if (_eventOne == 2)
+                        {
+                            _game.Text = "땅에 기다란 구멍이 뚫려있다.";
+                        }
+                        else
+                            _game.Text="신호가 잡히지 않는다.";
                     }
-                    else if (_radiationLevel < 4 && _radiationLevel >= 2)
-                        _game.Text = "나무 뿌리 같은 것이 있습니다.";
-                    else if (_radiationLevel >= 4)
-                        _game.Text = "발 밑에 무언가 지나간 것 같습니다.";
+
+                    if (_game._sectorOneLevel == 2)
+                    {
+                        if (_eventOne == 0)
+                        {
+                            _game.Text = "표면이 울퉁불퉁 한게 나무 뿌리 같다.";
+                            _eventOne++;
+                        }
+                        else if (_eventOne == 1)
+                        {
+                            _game.Text = "땅 밑에 무언가 움직이는 것 같다.";
+                            _eventOne++;
+                        }
+                        else if (_eventOne == 2)
+                        {
+                            _game.Text = "나도 모르는 사이 뿌리를 붙잡고 있었다.";
+                            _eventOne++;
+                        }
+                        else
+                            _game.Text = "신호가 잡히지 않는다.";
+                    }
+
+                    if (_game._sectorOneLevel == 3)
+                    {
+                        if (_eventOne == 0)
+                        {
+                            _game.Text = "무언가 다리를 스치고 갔다.";
+                            _eventOne++;
+                        }
+                        else if (_eventOne == 1)
+                        {
+                            _game.Text = "흐느끼는 소리가 들린다.";
+                            _eventOne++;
+                        }
+                        else if (_eventOne == 2)
+                        {
+                            _game.Text = "웃는 소리가 들린다.";
+                            _eventOne++;
+                        } 
+                        else
+                            _game.Text = "신호가 잡히지 않는다.";
+                    }
+
+                    matrixA[location[0]][location[1]]=5;
                     break;
                 case 5:
-                    _game.Text = "별 다른 일은 없군요.";
+                    _game.Text = "별 다른 일은 없다.";
                     break;
                 case 6:
-                    _game.Text = "신호기 전원이 들어왔습니다!";
+                    _game.Text = "신호기 전원이 들어왔다!";
                     CalcDis();// 신호생성
                     break;
                 case 7:
-                    _game.Text = "신호기가 작동합니다!";
+                    _game.Text = "신호기가 작동한다!";
                     CalcDis();// 신호생성
                     break;
             }
