@@ -7,13 +7,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Speech.Synthesis;
 
 namespace ProjectGravitation.Classes
 {
     public class Game : INotifyPropertyChanged
     {
         private string _text;
-        
+        SpeechSynthesizer speechSynthesizer;
         public StackPanel panel;
         public TreasureGame _trGame;
         public event PropertyChangedEventHandler PropertyChanged;
@@ -39,8 +40,10 @@ namespace ProjectGravitation.Classes
         {
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(propName));
-            //panel.Children[0].Focus();
+            speechSynthesizer.Speak(Text);
             
+
+
         }
 
 
@@ -48,6 +51,12 @@ namespace ProjectGravitation.Classes
 
         public Game()
         {
+            speechSynthesizer = new SpeechSynthesizer();
+
+            speechSynthesizer.SetOutputToDefaultAudioDevice();
+
+            speechSynthesizer.SelectVoice("Microsoft Heami Desktop");
+
             _positivePoint = 0;
             _negativePoint = 0;
             _sectorOneLevel = 1;
@@ -56,8 +65,8 @@ namespace ProjectGravitation.Classes
             _gameCommand = new GameCommand(this);
         
             _text = "게임을 시작할 까요?";
+           
 
-             
         }
 
     }
