@@ -67,6 +67,7 @@
     <Compile Include="Classes\Game.cs" />
     <Compile Include="Classes\TreasureGame.cs" />
     <Compile Include="Commands\GameCommand.cs" />
+    <Compile Include="Commands\KeyDownCommand.cs" />
     <Compile Include="Controlls\MyButton.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

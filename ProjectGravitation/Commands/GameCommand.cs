@@ -45,16 +45,37 @@ namespace ProjectGravitation.Commands
                 MainStart(clickedBtn);
             if(clickedBtn.Content.ToString() == "얼굴에 입을 맞춘다")
             {
-                _game._positivePoint++;
+                _game._positivePoint+=3;
                 MainStart(clickedBtn);
             }
             if(clickedBtn.Content.ToString() == "나무 가지를 꺾는다")
             {
-                _game._negativePoint++;
+                _game._negativePoint+=3;
                 MainStart(clickedBtn);
             }
+            if (clickedBtn.Content.ToString() == "헛기침을 낸다." || clickedBtn.Content.ToString() == "가만히 있는다.")
+            {
+                EndingN2(clickedBtn);
+            }
+            if (clickedBtn.Content.ToString()=="...")
+            {
+                EndingN3();
+            }
+            if (clickedBtn.Content.ToString() == "눈이 감긴다.")
+            {
+                EndingN4();
+            }
+            if (clickedBtn.Content.ToString() == "종료")
+            {
+                System.Environment.Exit(0);
+            }
 
-
+   
+            
+            
+           Grid grid = _game.panel.Parent as Grid;
+           TextBlock block=grid.FindName("text") as TextBlock;//https://docs.microsoft.com/ko-kr/dotnet/desktop/wpf/advanced/how-to-find-an-element-by-its-name?view=netframeworkdesktop-4.8
+           block.Focus();
         }
 
         public void MainStart(Button clickedBtn)
@@ -82,6 +103,21 @@ namespace ProjectGravitation.Commands
         }
         public void SectorOneStart(Button clickedBtn)
         {
+
+            if((_game._negativePoint+_game._positivePoint)==3)
+            {
+                //호출 엔딩
+                if(_game._negativePoint>_game._positivePoint)
+                {
+                    EndingN();
+                }
+                else
+                {
+                    //EndingP
+                }
+                return;
+            }
+
             if(_game._sectorOneLevel==4)
             {
                 _game.Text += "\n클리어 했습니다.";
@@ -154,6 +190,74 @@ namespace ProjectGravitation.Commands
 
         }
 
+        public void EndingN()
+        {
+            _game.panel.Children.Clear();
+            _game.Text = "소리 없이 지평선 끝부터 그림자가 드리웠다." +
+                " 순식간에 내가 있는 곳까지 어두워졌다. 심장이 내려 앉았다. 주변엔 이제 아무것도 보이지 않았다";
+            MyButton button1 = new MyButton();
+            button1.Content = "헛기침을 낸다.";
+            button1.Command = _game._gameCommand;
+            button1.CommandParameter = button1;
+            _game.panel.Children.Add(button1);
 
+            MyButton button2 = new MyButton();
+            button2.Content = "가만히 있는다.";
+            button2.Command = _game._gameCommand;
+            button2.CommandParameter = button1;
+            _game.panel.Children.Add(button2);
+        }
+
+        public void EndingN2(Button button)
+        {
+            string content = button.Content.ToString();
+            if (content == "헛기침을 낸다.")
+            {
+                _game.Text = "나는 헛기침을 냈다.";
+            }
+            else
+            {
+                _game.Text = "나는 가만히 있었다.";
+            }
+
+            _game.panel.Children.Clear();
+
+            _game.Text = _game.Text+ "적막이 흘렀다. 나는 손가락 하나 까딱할 수 없었다." +
+                "움직이면 모든 게 끝장날 거라는 생각이 들었다. 언제까지 이렇게 서 있어야 할까.";
+            MyButton button1 = new MyButton();
+            button1.Content = "...";
+            button1.Command = _game._gameCommand;
+            button1.CommandParameter = button1;
+            _game.panel.Children.Add(button1);
+
+            MyButton button2 = new MyButton();
+            button2.Content = "...";
+            button2.Command = _game._gameCommand;
+            button2.CommandParameter = button1;
+            _game.panel.Children.Add(button2);
+        }
+
+        public void EndingN3()
+        {
+            _game.panel.Children.Clear();
+            _game.Text = "불이 켜졌다. 아니 주변이 밝아진 것이 아니었다. 하늘에 무수한 눈동자와 흰자가 나타났다. " +
+                "그 거대한 눈동자는 나를 내려봤다. ";
+            MyButton button1 = new MyButton();
+            button1.Content = "눈이 감긴다.";
+            button1.Command = _game._gameCommand;
+            button1.CommandParameter = button1;
+            _game.panel.Children.Add(button1);
+        }
+        public void EndingN4()
+        {
+            _game.Text = "End";
+            _game.panel.Children.Clear();
+            MyButton button1 = new MyButton();
+            button1.Content = "종료";
+            button1.Command = _game._gameCommand;
+            button1.CommandParameter = button1;
+            _game.panel.Children.Add(button1);
+
+        }
     }
 }

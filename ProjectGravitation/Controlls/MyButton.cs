@@ -6,11 +6,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Speech.Synthesis;
 
 namespace ProjectGravitation.Controlls
 {
     public class MyButton : Button
     {
+        SpeechSynthesizer speechSynthesizer;
         public MyButton()
         {
             this.Background= Brushes.Black;
@@ -18,7 +20,11 @@ namespace ProjectGravitation.Controlls
             FontSize = 30;
             this.GotFocus += MyButton_GotFocus;
             this.LostFocus += MyButton_LostFocus;
-            
+            speechSynthesizer = new SpeechSynthesizer();
+
+            speechSynthesizer.SetOutputToDefaultAudioDevice();
+
+            speechSynthesizer.SelectVoice("Microsoft Heami Desktop");
         }
 
         private void MyButton_LostFocus(object sender, System.Windows.RoutedEventArgs e)
@@ -31,6 +37,7 @@ namespace ProjectGravitation.Controlls
             //버튼의 콘텐트 읽기
             Button button = sender as Button;
             button.Background = Brushes.SkyBlue;
+            //speechSynthesizer.Speak(this.Content.ToString());
         }
     }
 }

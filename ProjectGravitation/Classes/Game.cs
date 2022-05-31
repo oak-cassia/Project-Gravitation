@@ -13,42 +13,28 @@ namespace ProjectGravitation.Classes
 {
     public class Game : INotifyPropertyChanged
     {
-        private string _text;
+        private string _text;//데이터 바인딩으로 이 변수 변경 시 보여지는 스택패널의 텍스트 변경
         SpeechSynthesizer speechSynthesizer;
         public StackPanel panel;
-        public TreasureGame _trGame;
+        public TreasureGame _trGame; //1지역 게임
         public event PropertyChangedEventHandler PropertyChanged;
-
-        public int _positivePoint { get; set; } //프로퍼티 다섯 개로 진행사항 관리하면 세이브 로드 가능할지도??
+        public int _positivePoint { get; set; } //프로퍼티 다섯 개로 진행사항 관리하면 세이브 로드 구현 가능
         public int _negativePoint { get; set; }
         public int _sectorOneLevel { get; set; }
         public int _sectorTwoLevel { get; set; }
         public int _sectorThreeLevel { get; set; }
-        public GameCommand _gameCommand { get; set; }
-
-
-
-
-
-
+        public GameCommand _gameCommand { get; set; }//버튼 클릭 시 호출되는 함수들 구현
         public string Text
         {
             get { return _text; }
             set { _text = value; NotifyPropertyChanged(nameof(Text)); }
         }
-        public void NotifyPropertyChanged(string propName)
+        public void NotifyPropertyChanged(string propName)//Text 변경 시 호출
         {
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(propName));
-            speechSynthesizer.Speak(Text);
-            
-
-
+            //speechSynthesizer.Speak(Text);
         }
-
-
-       
-
         public Game()
         {
             speechSynthesizer = new SpeechSynthesizer();
@@ -65,7 +51,7 @@ namespace ProjectGravitation.Classes
             _gameCommand = new GameCommand(this);
         
             _text = "게임을 시작할 까요?";
-           
+          //  speechSynthesizer.Speak("F를 누르면 텍스트를 읽습니다. 방향키로 선택지를 바꿀 수 있습니다. 스페이스 바로 선택지를 결정합니다.");
 
         }
 

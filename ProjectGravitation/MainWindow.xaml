@@ -6,36 +6,46 @@
         xmlns:local="clr-namespace:ProjectGravitation"
         xmlns:myclass="clr-namespace:ProjectGravitation.Classes"
         xmlns:mycontrol="clr-namespace:ProjectGravitation.Controlls"
+        xmlns:mycmd="clr-namespace:ProjectGravitation.Commands"
         mc:Ignorable="d"
         Title="MainWindow" Height="700" Width="450"
-      
-        >
+     FocusManager.FocusedElement="{Binding ElementName=text}"
+    >
+    <Window.InputBindings>
+    </Window.InputBindings>
     <Window.Resources>
         <myclass:Game x:Key="mainGame"/>
-             
+        <mycmd:KeyDownCommand x:Key="keyDown"/>
     </Window.Resources>
-    
-    <Grid  DataContext="{DynamicResource mainGame}">
+
+    <Grid DataContext="{DynamicResource mainGame}"
+          >
+        <Grid.InputBindings>
+            <KeyBinding Command="{Binding Source={StaticResource keyDown} }"
+                    CommandParameter="{Binding ElementName=text,Path=Text}"
+              Key="F" />
+
+        </Grid.InputBindings>
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <StackPanel Background="Black" Grid.Row="0">
+        <StackPanel  Background="Black" Grid.Row="0">
            
            
             <ScrollViewer VerticalScrollBarVisibility="Auto" >
                
-                <TextBlock  TextWrapping="Wrap" Background="Black" Foreground="White" x:Name="text" Text="{Binding Path=Text}" FontSize="25" />
+                <TextBlock Focusable="True" TextWrapping="Wrap" Background="Black" Foreground="White" x:Name="text" Text="{Binding Path=Text}" FontSize="25" />
 
-        </ScrollViewer>
+             </ScrollViewer>
         </StackPanel>
-
-        <StackPanel  Background="black" x:Name="buttons" Grid.Row="1">
+        
+        <StackPanel Background="black" x:Name="buttons" Grid.Row="1">
             <mycontrol:MyButton x:Name="MainStart" 
                     Content="게임 시작"
                     CommandParameter="{Binding ElementName=MainStart}"
                     Command="{Binding Source={StaticResource mainGame}, Path =_gameCommand}"/>
-            <mycontrol:MyButton Content="안할래요"/>
+            <mycontrol:MyButton Content="안할래요" />
         </StackPanel>
     </Grid>
 </Window>
