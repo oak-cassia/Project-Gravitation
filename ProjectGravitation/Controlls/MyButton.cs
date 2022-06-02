@@ -13,6 +13,8 @@ namespace ProjectGravitation.Controlls
     public class MyButton : Button
     {
         SpeechSynthesizer speechSynthesizer;
+
+        public static bool IsSpeak = true;
         public MyButton()
         {
             this.Background= Brushes.Black;
@@ -37,7 +39,8 @@ namespace ProjectGravitation.Controlls
             //버튼의 콘텐트 읽기
             Button button = sender as Button;
             button.Background = Brushes.SkyBlue;
-            //speechSynthesizer.Speak(this.Content.ToString());
+            if(IsSpeak)
+                speechSynthesizer.Speak(this.Content.ToString());
         }
     }
 }

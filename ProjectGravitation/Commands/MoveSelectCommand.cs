@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Speech.Synthesis;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace ProjectGravitation.Commands
 {
-    internal class KeyDownCommand : ICommand
+    internal class MoveSelectCommand : ICommand
     {
         public event EventHandler CanExecuteChanged;
-        SpeechSynthesizer speechSynthesizer; 
 
         public bool CanExecute(object parameter)
         {
@@ -20,15 +20,11 @@ namespace ProjectGravitation.Commands
 
         public void Execute(object parameter)
         {
-            speechSynthesizer = new SpeechSynthesizer();
+            StackPanel panel = parameter as StackPanel;
 
-            speechSynthesizer.SetOutputToDefaultAudioDevice();
-
-            speechSynthesizer.SelectVoice("Microsoft Heami Desktop");
-            string text = parameter.ToString();
-            
-            speechSynthesizer.Speak(text);
-
+            panel.Children[0].Focus();
+           
         }
+
     }
 }

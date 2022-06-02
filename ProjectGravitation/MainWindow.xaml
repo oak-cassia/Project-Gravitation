@@ -9,13 +9,15 @@
         xmlns:mycmd="clr-namespace:ProjectGravitation.Commands"
         mc:Ignorable="d"
         Title="MainWindow" Height="700" Width="450"
-     FocusManager.FocusedElement="{Binding ElementName=text}"
+     FocusManager.FocusedElement="{Binding ElementName=buttons}"
     >
     <Window.InputBindings>
     </Window.InputBindings>
     <Window.Resources>
         <myclass:Game x:Key="mainGame"/>
-        <mycmd:KeyDownCommand x:Key="keyDown"/>
+        <mycmd:TextSpeakCommand x:Key="keyDown"/>
+        <mycmd:MoveSelectCommand x:Key="moveSelect"/>
+        <mycmd:IsSpeakCommand x:Key="isSpeak"/>
     </Window.Resources>
 
     <Grid DataContext="{DynamicResource mainGame}"
@@ -25,6 +27,11 @@
                     CommandParameter="{Binding ElementName=text,Path=Text}"
               Key="F" />
 
+            <KeyBinding Command="{Binding Source={StaticResource moveSelect}}"
+                        CommandParameter="{Binding ElementName=buttons}"
+                        Key="D"/>
+            <KeyBinding Command="{Binding Source={StaticResource isSpeak}}"
+                        Key="S"/>
         </Grid.InputBindings>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -35,12 +42,12 @@
            
             <ScrollViewer VerticalScrollBarVisibility="Auto" >
                
-                <TextBlock Focusable="True" TextWrapping="Wrap" Background="Black" Foreground="White" x:Name="text" Text="{Binding Path=Text}" FontSize="25" />
+                <TextBlock TextWrapping="Wrap" Background="Black" Foreground="White" x:Name="text" Text="{Binding Path=Text}" FontSize="25" />
 
              </ScrollViewer>
         </StackPanel>
         
-        <StackPanel Background="black" x:Name="buttons" Grid.Row="1">
+        <StackPanel Focusable="True" Background="black" x:Name="buttons" Grid.Row="1">
             <mycontrol:MyButton x:Name="MainStart" 
                     Content="게임 시작"
                     CommandParameter="{Binding ElementName=MainStart}"

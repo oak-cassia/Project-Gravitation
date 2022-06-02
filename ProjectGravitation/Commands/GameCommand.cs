@@ -74,8 +74,8 @@ namespace ProjectGravitation.Commands
             
             
            Grid grid = _game.panel.Parent as Grid;
-           TextBlock block=grid.FindName("text") as TextBlock;//https://docs.microsoft.com/ko-kr/dotnet/desktop/wpf/advanced/how-to-find-an-element-by-its-name?view=netframeworkdesktop-4.8
-           block.Focus();
+           StackPanel buttons=grid.FindName("buttons") as StackPanel;//https://docs.microsoft.com/ko-kr/dotnet/desktop/wpf/advanced/how-to-find-an-element-by-its-name?view=netframeworkdesktop-4.8
+           buttons.Focus();
         }
 
         public void MainStart(Button clickedBtn)
