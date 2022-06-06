@@ -9,7 +9,7 @@
         xmlns:mycmd="clr-namespace:ProjectGravitation.Commands"
         mc:Ignorable="d"
         Title="MainWindow" Height="700" Width="450"
-     FocusManager.FocusedElement="{Binding ElementName=buttons}"
+     FocusManager.FocusedElement="{Binding ElementName=MainStart}"
     >
     <Window.InputBindings>
     </Window.InputBindings>

@@ -39,8 +39,11 @@ namespace ProjectGravitation.Controlls
             //버튼의 콘텐트 읽기
             Button button = sender as Button;
             button.Background = Brushes.SkyBlue;
-            if(IsSpeak)
+            if (IsSpeak)
+            {
                 speechSynthesizer.Speak(this.Content.ToString());
+                                    
+            }
         }
     }
 }

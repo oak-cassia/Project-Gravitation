@@ -23,6 +23,8 @@ namespace ProjectGravitation.Classes
         public int _sectorOneLevel { get; set; }
         public int _sectorTwoLevel { get; set; }
         public int _sectorThreeLevel { get; set; }
+
+        public int _startCount = 0;
         public GameCommand _gameCommand { get; set; }//버튼 클릭 시 호출되는 함수들 구현
         public string Text
         {
@@ -49,10 +51,13 @@ namespace ProjectGravitation.Classes
             _sectorTwoLevel = 1;
             _sectorThreeLevel = 1;
             _gameCommand = new GameCommand(this);
-        
-            _text = "게임을 시작할 까요?";
-          //  speechSynthesizer.Speak("F를 누르면 텍스트를 읽습니다. 방향키로 선택지를 바꿀 수 있습니다. 스페이스 바로 선택지를 결정합니다.");
 
+            if (_startCount == 0)
+            {
+                _text = "S를 누르면 소리를 끄고 킬 수 있습니다.\n D를 누른 후 방향키로 선택지를 고르고 스페이스 바로 선택할 수 있습니다.. F를 누르면 텍스트를 읽습니다. \n ";
+                speechSynthesizer.Speak(_text);
+                _startCount++;
+            }
         }
 
     }
