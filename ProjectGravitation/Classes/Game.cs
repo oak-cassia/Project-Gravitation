@@ -17,6 +17,7 @@ namespace ProjectGravitation.Classes
         SpeechSynthesizer speechSynthesizer;
         public StackPanel panel;
         public TreasureGame _trGame; //1지역 게임
+        
         public event PropertyChangedEventHandler PropertyChanged;
         public int _positivePoint { get; set; } //프로퍼티 다섯 개로 진행사항 관리하면 세이브 로드 구현 가능
         public int _negativePoint { get; set; }
@@ -26,6 +27,18 @@ namespace ProjectGravitation.Classes
 
         public int _startCount = 0;
         public GameCommand _gameCommand { get; set; }//버튼 클릭 시 호출되는 함수들 구현
+
+        /*2지역 추가*/
+        public int _Alien_Community { get; set; }
+        public int Love { get; set; } // 성향 결정 1; 보수 받으면 2; 스토리 끝날 시 3;
+        public int Friendship { get; set; }
+        public int Angry { get; set; }
+
+        public int Quiz { get; set; }
+        public AlienGame _alGame;
+        //2지역
+
+
         public string Text
         {
             get { return _text; }
@@ -51,6 +64,14 @@ namespace ProjectGravitation.Classes
             _sectorTwoLevel = 1;
             _sectorThreeLevel = 1;
             _gameCommand = new GameCommand(this);
+
+            /*2지역*/
+            _Alien_Community = 1;
+            Love = 0;
+            Angry = 0;
+            Friendship = 0;
+            Quiz = 0;
+            /*2지역*/
 
             if (_startCount == 0)
             {
