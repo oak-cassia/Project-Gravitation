@@ -90,6 +90,19 @@ namespace ProjectGravitation.Commands
 
             if (clickedBtn.Content.ToString() == "2지역")
             {
+                if ((_game._negativePoint + _game._positivePoint) >= 3)
+                {
+                    //호출 엔딩
+                    if (_game._negativePoint > _game._positivePoint)
+                    {
+                        EndingN();
+                    }
+                    else
+                    {
+                        EndingP();
+                    }
+                    return;
+                }
                 if (End_Second_sector != 0)
                 {
                     _game._alGame.Already_End_Second_sector(clickedBtn);
@@ -429,9 +442,9 @@ namespace ProjectGravitation.Commands
                 }
             }
             //Quiz_3
-            if (clickedBtn.Content.ToString() == "정답")
+            if (clickedBtn.Content.ToString() == "칫솔" || clickedBtn.Content.ToString() == "흥부" || clickedBtn.Content.ToString() == "소비" || clickedBtn.Content.ToString() == "비실")
             {
-                if (txtbox.Text == "칫솔")
+                if (clickedBtn.Content.ToString() == "칫솔")
                 {
                     if (_game.Angry != 0) { for (int i = 0; i < 5; i++) { _game._alGame.AngryMinus(); _game._alGame.Angry_6(clickedBtn); Quiz_Level_Save += 1; } }
                     else if (_game.Friendship != 0) { for (int i = 0; i < 5; i++) { _game._alGame.FriendshipPlus(); _game._alGame.FriendShip_6(clickedBtn); Quiz_Level_Save += 1; } }
@@ -449,6 +462,26 @@ namespace ProjectGravitation.Commands
 
 
             /*2지역*/
+
+            /*3지역*/
+            if (clickedBtn.Content.ToString()=="3지역")
+            {
+               
+                if ((_game._negativePoint + _game._positivePoint) >= 3)
+                {
+                    //호출 엔딩
+                    if (_game._negativePoint > _game._positivePoint)
+                    {
+                        EndingN();
+                    }
+                    else
+                    {
+                        EndingP();
+                    }
+                    return;
+                }
+                _game._negativePoint++;
+            }
 
 
             Grid grid = _game.panel.Parent as Grid;
@@ -488,7 +521,7 @@ namespace ProjectGravitation.Commands
         public void SectorOneStart(Button clickedBtn)
         {
 
-            if ((_game._negativePoint + _game._positivePoint) == 3)
+            if ((_game._negativePoint + _game._positivePoint) >= 3)
             {
                 //호출 엔딩
                 if (_game._negativePoint > _game._positivePoint)
@@ -626,8 +659,8 @@ namespace ProjectGravitation.Commands
         public void EndingN3()
         {
             _game.panel.Children.Clear();
-            _game.Text = "불이 켜졌다. 아니 주변이 밝아진 것이 아니었다. 하늘에 무수한 눈동자와 흰자가 나타났다. " +
-                "그 거대한 눈동자는 나를 내려봤다. 그리고 모든 것을 집어삼킬 듯한 거대한 입, 그 입을 본 순간 순식간에 졸음이 밀려왔다.";
+            _game.Text = "불이 켜졌다. 아니 주변이 밝아진 것이 아니었다. 하늘에 무수한 온전한 눈동자와 텅 빈 흰자가 나타났다. " +
+                "그 거대한 눈들은 나를 내려봤다. 그리고 모든 것을 집어삼킬 듯한 거대한 입, 그 입을 본 순간 순식간에 졸음이 밀려왔다.";
             MyButton button1 = new MyButton();
             button1.Content = "눈이 감긴다.";
             button1.Command = _game._gameCommand;
@@ -649,7 +682,7 @@ namespace ProjectGravitation.Commands
         public void EndingP()
         {
             _game.panel.Children.Clear();
-            _game.Text = "2주가 지나 다음 우주선이 연료를 싣고 올 때가 됐다. " +
+            _game.Text = "시간이 지나 다음 우주선이 연료를 싣고 올 때가 됐다. " +
                 "\n 도착시간 1시간 전, 나는 하늘만 쳐다봤다. 하늘에서 뭔가 반짝였다.";
             MyButton button1 = new MyButton();
             button1.Content = "가까워지는 우주선을 쳐다본다.";
@@ -669,11 +702,11 @@ namespace ProjectGravitation.Commands
             string content = button.Content.ToString();
             if (content == "가까워지는 우주선을 쳐다본다")
             {
-                _game.Text = "눈이 빨개져라 봤다. 점점 크기가 커지더니 이내 지면에 닿았다.";
+                _game.Text = "눈이 빨개져라 봤다. 돌아갈 수 있단느 기대감에 심장이 요동쳤다. 우주선의 크기가 점점 커지더니 이내 지면에 닿았다.";
             }
             else
             {
-                _game.Text = "들어가 잠이나 잔다.";
+                _game.Text = "잠을 자던 중 어떤 소리에 깨어났다.";
             }
 
             _game.panel.Children.Clear();
@@ -689,7 +722,8 @@ namespace ProjectGravitation.Commands
         public void EndingP3()
         {
             _game.panel.Children.Clear();
-            _game.Text = "우주선이 지면에 닿았다. 통신 장비는 아직도 지지직 거리기만 했다. 문이 열렸다.";
+            _game.Text = "통신 장비는 아직 먹통이었다. 지직 거리기만 하고 음성이 들리지는 않았다." +
+                " 우주선이 지면에 닿았다. 통신을 시도했지만 장비는 아직도 지지직 거리기만 했다. 이내 문이 열렸다. 나는 이제 돌아갈 수 있을까? 문제는 해결됐을까?";
             MyButton button1 = new MyButton();
             button1.Content = "우주복을 입은 사람이 나온다.";
             button1.Command = _game._gameCommand;
