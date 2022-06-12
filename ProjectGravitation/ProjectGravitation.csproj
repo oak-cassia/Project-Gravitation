@@ -66,6 +66,7 @@
     </Compile>
     <Compile Include="Classes\AlienGame.cs" />
     <Compile Include="Classes\Game.cs" />
+    <Compile Include="Classes\SurvivorGame.cs" />
     <Compile Include="Classes\TreasureGame.cs" />
     <Compile Include="Commands\GameCommand.cs" />
     <Compile Include="Commands\IsSpeakCommand.cs" />

@@ -38,6 +38,8 @@ namespace ProjectGravitation.Classes
         public AlienGame _alGame;
         //2지역
 
+        public SurvivorGame _sgGame;
+
 
         public string Text
         {
@@ -72,6 +74,10 @@ namespace ProjectGravitation.Classes
             Friendship = 0;
             Quiz = 0;
             /*2지역*/
+
+            _sgGame = new SurvivorGame(this);
+
+
 
             if (_startCount == 0)
             {

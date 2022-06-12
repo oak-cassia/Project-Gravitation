@@ -464,9 +464,8 @@ namespace ProjectGravitation.Commands
             /*2지역*/
 
             /*3지역*/
-            if (clickedBtn.Content.ToString()=="3지역")
+            if (clickedBtn.Content.ToString() == "3지역")
             {
-               
                 if ((_game._negativePoint + _game._positivePoint) >= 3)
                 {
                     //호출 엔딩
@@ -480,14 +479,96 @@ namespace ProjectGravitation.Commands
                     }
                     return;
                 }
-                _game._negativePoint++;
+                _game._sgGame.Storm();
             }
+            if (clickedBtn.Content.ToString() == "처음으로 돌아간다.")
+            {
+                MainStart(clickedBtn);
+            }
+            if (clickedBtn.Content.ToString() == "오른쪽 건물로 간다")
+            {
+                _game._sgGame.Building();
+            }
+            if (clickedBtn.Content.ToString() == "왼쪽 벙커로 간다")
+            {
+                _game._sgGame.Bunker();
+            }
+            if (clickedBtn.Content.ToString() == "그냥 폭풍을 뚫고 간다")
+            {
+                _game._sgGame.Stone();
+            }
+            if (clickedBtn.Content.ToString() == "왼쪽 벙커로 간다")
+            {
+                _game._sgGame.Bunker();
+            }
+            if (clickedBtn.Content.ToString() == "바로 우주선을 연다.")
+            {
+                _game._sgGame.Food();
+            }
+            if (clickedBtn.Content.ToString() == "우주선 주변을 탐색하자.")
+            {
+                _game._sgGame.Trap();
+            }
+            if (clickedBtn.Content.ToString() == "무시하고 갈길 가자")
+            {
+                _game._sgGame.Pass();
+            }
+            if (clickedBtn.Content.ToString() == "몰라 배고프니까 일단 먹자.")
+            {
+                _game._sgGame.Colic();
+            }
+            if (clickedBtn.Content.ToString() == "신중하게 유통기한을 보고 먹자.")
+            {
+                _game._sgGame.Hungry();
+            }
+            if (clickedBtn.Content.ToString() == "흠..우주선을 좀더 둘러볼까?")
+            {
+                _game._sgGame.Search();
+            }
+            if (clickedBtn.Content.ToString() == "탐사 로버가 있네 타고 가자.")
+            {
+                _game._sgGame.ManualCar();
+                _game._negativePoint += 1;
+            }
+            if (clickedBtn.Content.ToString() == "천천히 걸어가자. 길을 잘 모르니까")
+            {
+                _game._sgGame.Comeback();
+                _game._positivePoint += 1;
+            }
+            if (clickedBtn.Content.ToString() == "가긴 어딜가 여기서 살자")
+            {
+                _game._sgGame.Radiation();
+            }
+            if (clickedBtn.Content.ToString() == "베이스 캠프 복귀 완료.")
+            {
+                MainStart(clickedBtn);
+                return;
+            }
+
+
+
 
 
             Grid grid = _game.panel.Parent as Grid;
             StackPanel buttons = grid.FindName("buttons") as StackPanel;//https://docs.microsoft.com/ko-kr/dotnet/desktop/wpf/advanced/how-to-find-an-element-by-its-name?view=netframeworkdesktop-4.8
             buttons.Focus();
         }
+
+
+        //3
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         public void MainStart(Button clickedBtn)
         {
